@@ -1,4 +1,3 @@
-
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
