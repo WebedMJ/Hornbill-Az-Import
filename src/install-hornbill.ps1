@@ -1,3 +1,5 @@
+
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 $HB_SHA256 = "DBBDF4AF4ECC5DF1CADBDB8190160804DDB22830B1E32D215D6D03242AF65BA2"
