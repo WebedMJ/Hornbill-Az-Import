@@ -2,4 +2,14 @@
 
 Work in progress!
 
-See: https://github.com/hornbill/goAzure2HUserImport
+See: <https://github.com/hornbill/goAzure2HUserImport>
+
+## Building with ACR
+
+Login to the az cli or use cloud shell...
+
+```sh
+git clone 'https://github.com/WebedMJ/Hornbill-Az-Import'
+cd '/home/<username>/Hornbill-Az-Import'
+az acr build --registry myacr --platform windows --image hornbillazimport:v1
+```
