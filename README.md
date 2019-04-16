@@ -11,5 +11,6 @@ Login to the az cli or use cloud shell...
 ```sh
 git clone 'https://github.com/WebedMJ/Hornbill-Az-Import'
 cd '/home/<username>/Hornbill-Az-Import'
-az acr build --registry myacr --platform windows --image hornbillazimport:v1
+ACR_NAME=myacr
+az acr build --registry $ACR_NAME --platform windows --image hornbillazimport:v1 .
 ```
