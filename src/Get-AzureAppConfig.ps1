@@ -26,7 +26,7 @@ https://github.com/Azure/AppConfiguration/blob/master/docs/REST/authentication.m
 $configid = 'xxxx'
 $configsecret = 'xxxx'
 
-$uri = [System.UriBuilder]::new($configuri.Scheme, $configuri.Host, "443", 'kv', '')
+$uri = [System.UriBuilder]::new($configuri.Scheme, $configuri.Host, "443", 'kv', '?$select=key,value')
 $body = ''
 $GMTTime = (Get-Date).ToUniversalTime().toString('R')
 $sha256 = New-Object System.Security.Cryptography.SHA256CryptoServiceProvider
