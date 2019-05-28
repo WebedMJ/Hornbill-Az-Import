@@ -2,24 +2,20 @@
     "APIKey": "",
     "InstanceId": "",
     "UpdateUserType": false,
-    "UserRoleAction": "Create",
+    "UserRoleAction": "Update",
     "AzureConf": {
         "Tenant": "",
         "ClientID": "",
         "ClientSecret": "",
         "UserFilter": "",
-        "UserID": "userprincipalname",
+        "UserID": "userPrincipalName",
         "Debug": false,
-        "APIVersion": "1.6",
+        "APIVersion": "v1.0",
         "Search": "groups",
         "UsersByGroupID": [
             {
-                "ObjectID": "",
-                "Name": ""
-            },
-            {
-                "ObjectID": "",
-                "Name": ""
+                "ObjectID": "Group Object ID",
+                "Name": "Group Object Name"
             }
         ]
     },
@@ -28,16 +24,16 @@
         "UserType": "basic",
         "Name": "{{.displayname}}",
         "Password": "",
-        "FirstName": "{{.givenname}}",
+        "FirstName": "{{.givenName}}",
         "LastName": "{{.surname}}",
-        "JobTitle": "{{.jobtitle}}",
-        "Site": "{{.physicaldeliveryofficename}}",
+        "JobTitle": "{.jobtitle}}",
+        "Site": "{{.physicalDeliverOfficeName}}",
         "Phone": "{{.telephoneNumber}}",
         "Email": "{{.mail}}",
         "Mobile": "{{.mobile}}",
         "AbsenceMessage": "",
         "TimeZone": "",
-        "Language": "{{.preferredlanguange}}",
+        "Language": "",
         "DateTimeFormat": "",
         "DateFormat": "",
         "TimeFormat": "",
@@ -46,7 +42,7 @@
     },
     "UserAccountStatus": {
         "Action": "Both",
-        "Enabled": false,
+        "Enabled": true,
         "Status": "active"
     },
     "UserProfileMapping": {
@@ -112,7 +108,7 @@
                 "TasksAction": false
             },
             {
-                "Attribute": "{{.companyname}}",
+                "Attribute": "{{.companyName}}",
                 "Type": 5,
                 "Membership": "member",
                 "TasksView": false,
