@@ -11,8 +11,8 @@ $HBConfig.AzureConf.ClientID = $env:AzureADClientID
 $HBConfig.AzureConf.ClientSecret = $env:AzureADClientSecret
 ($HBConfig.AzureConf.UsersByGroupID[0]).ObjectID = $env:AzureADGroupID1
 ($HBConfig.AzureConf.UsersByGroupID[0]).Name = $env:AzureADGroupName1
-($HBConfig.AzureConf.UsersByGroupID[1]).ObjectID = $env:AzureADGroupID2
-($HBConfig.AzureConf.UsersByGroupID[1]).Name = $env:AzureADGroupName2
+# ($HBConfig.AzureConf.UsersByGroupID[1]).ObjectID = $env:AzureADGroupID2
+# ($HBConfig.AzureConf.UsersByGroupID[1]).Name = $env:AzureADGroupName2
 $HBConfig | ConvertTo-Json -Depth 4 | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json')
 $params = @{
     FilePath         = '{0}\Azure2UserImport_x64.exe' -f $HBDirectory
