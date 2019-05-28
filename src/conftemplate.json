@@ -20,17 +20,17 @@
         ]
     },
     "UserMapping": {
-        "userId": "{{.userprincipalname}}",
+        "userId": "{{.userPrincipalName}}",
         "UserType": "basic",
-        "Name": "{{.displayname}}",
+        "Name": "{{.displayName}}",
         "Password": "",
         "FirstName": "{{.givenName}}",
         "LastName": "{{.surname}}",
-        "JobTitle": "{.jobtitle}}",
-        "Site": "{{.physicalDeliverOfficeName}}",
+        "JobTitle": "{{.jobTitle}}",
+        "Site": "{{.physicalDeliveryOfficeName}}",
         "Phone": "",
         "Email": "{{.mail}}",
-        "Mobile": "{{.mobile}}",
+        "Mobile": "{{.mobilePhone}}",
         "AbsenceMessage": "",
         "TimeZone": "",
         "Language": "",
@@ -42,7 +42,7 @@
     },
     "UserAccountStatus": {
         "Action": "Both",
-        "Enabled": true,
+        "Enabled": false,
         "Status": "active"
     },
     "UserProfileMapping": {
