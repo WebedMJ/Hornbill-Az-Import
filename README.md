@@ -6,7 +6,7 @@ See: <https://github.com/hornbill/goAzure2HUserImport>
 
 ## Building with ACR
 
-Login to the az cli or use cloud shell...
+Login az cli or use cloud shell...
 
 ```sh
 git clone 'https://github.com/WebedMJ/Hornbill-Az-Import'
