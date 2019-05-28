@@ -1,3 +1,5 @@
+# WIP - Currently garbles API keys...
+# TO-DO - Move to using Azure App Configuration
 # Pass required json attributes as environment variables at container creation / run time
 # e.g. on ACI see https://docs.microsoft.com/en-us/azure/container-instances/container-instances-environment-variables
 $HBDirectory = 'c:\Hornbill_Import'
