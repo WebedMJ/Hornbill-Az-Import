@@ -17,7 +17,7 @@ $HBConfig | ConvertTo-Json -Depth 4 | Out-File $(Join-Path -Path $HBDirectory -C
 $params = @{
     FilePath         = '{0}\Azure2UserImport_x64.exe' -f $HBDirectory
     WorkingDirectory = $HBDirectory
-    ArgumentList     = '-dryrun=true'
+    ArgumentList     = '-dryrun=true' # remove or change to false to run for real
     Wait             = $true
 }
 Start-Process @params
