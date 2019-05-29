@@ -27,6 +27,8 @@ $HBConfig.APIKey = (
 #     Get-AppConfigKeyValues -uri $configuri -id $configid -secret $configsecret -keyname 'AzureConf.UsersByGroupID.0.ObjectID').value
 # ($HBConfig.AzureConf.UsersByGroupID[0]).Name = (
 #     Get-AppConfigKeyValues -uri $configuri -id $configid -secret $configsecret -keyname 'AzureConf.UsersByGroupID.0.Name').value
+# ($HBConfig.AzureConf.debug = (
+#     Get-AppConfigKeyValues -uri $configuri -id $configid -secret $configsecret -keyname 'AzureConf.debug').value
 
 # This line only works in PS 6... https://github.com/PowerShell/PowerShell/issues/2632
 $HBConfig | ConvertTo-Json -Depth 4 | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json')
