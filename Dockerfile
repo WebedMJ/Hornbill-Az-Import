@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/windows/servercore:ltsc2019
+FROM mcr.microsoft.com/windows/servercore:ltsc2016
 
 LABEL description="Azure2HornbillUserImport" version="0.3.1"
 

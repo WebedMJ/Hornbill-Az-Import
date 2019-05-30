@@ -41,3 +41,7 @@ Pass following environment variables to container at runtime:
 * cfgkey -> Azure App Configuration Key name to retrieve json config
 
 Readonly access key is sufficient
+
+## Additional resources
+
+[Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task) - also shows using service principals and keyvault.
