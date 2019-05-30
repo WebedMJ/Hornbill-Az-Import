@@ -1,18 +1,23 @@
 <#
 ONLY WORKS IN Windows PS 5.x NOT Core/6.x (╯°□°）╯︵ ┻━┻
 6.x Invoke-RestMethod doesn't like commas in the authorization header...
+
+Defaults to getting Azure App Config details from env vars
 #>
 function Get-AppConfigKeyValues {
     param (
-        [Parameter(Mandatory = $true)]
-        [uri]$uri,
-        [Parameter(Mandatory = $true)]
-        [string]$id,
-        [Parameter(Mandatory = $true)]
-        [string]$secret,
+        [Parameter(Mandatory = $false)]
+        [uri]$uri = $env:cfguri,
+        [Parameter(Mandatory = $false)]
+        [string]$id = $env:cfgid,
+        [Parameter(Mandatory = $false)]
+        [string]$secret = $env:cfgsecret,
         [Parameter(Mandatory = $false)]
         [string]$keyname
     )
+    if (!$uri -or !$id -or !$secret) {
+        throw 'Missing Azure App Config details'
+    }
     if ($keyname) {
         $keyquery = 'kv/{0}' -f $keyname
     } else {
@@ -30,7 +35,7 @@ function Get-AppConfigKeyValues {
     $urimethod = 'GET'
     $StringToSign = "{0}`n{1}`n{2}" -f $urimethod, $appcfguri.Uri.PathAndQuery, $signedheadersvalue
     $signature = [Convert]::ToBase64String($hmacsha.ComputeHash([Text.Encoding]::ASCII.GetBytes($StringToSign)))
-    $Authorization = "HMAC-SHA256 Credential={0}, SignedHeaders={1}, Signature={2}" -f $id, $signedheaders, $signature
+    $Authorization = "HMAC-SHA256 Credential={0},SignedHeaders={1},Signature={2}" -f $id, $signedheaders, $signature
     $headers = @{
         Host                  = $uri.Host
         'x-ms-date'           = $GMTTime
@@ -40,5 +45,3 @@ function Get-AppConfigKeyValues {
     $r = Invoke-RestMethod -Uri $appcfguri.Uri -Headers $headers -Method $urimethod
     return $r
 }
-
-# Get-AppConfigKeyValues -uri $configuri -id $configid -secret $configsecret -keyname $configkey
