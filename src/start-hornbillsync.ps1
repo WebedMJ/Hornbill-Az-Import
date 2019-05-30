@@ -3,7 +3,7 @@
 #
 # Pass required json attributes as environment variables at container creation / run time
 # e.g. on ACI see https://docs.microsoft.com/en-us/azure/container-instances/container-instances-environment-variables
-
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $HBDirectory = 'c:\Hornbill_Import'
 . $(Join-Path -Path $HBDirectory -ChildPath 'Get-AzureAppConfig.ps1')
 (Get-AppConfigKeyValues -keyname $env:cfgkey).value | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json')
@@ -14,3 +14,6 @@ $params = @{
     Wait             = $true
 }
 Start-Process @params
+# Dump sync logs to container logs
+$logs = Get-ChildItem -Path $(Join-Path -Path $HBDirectory -ChildPath 'log\*') -Include '*.log'
+$logs | Sort-Object LastWriteTime -Descending | Select-Object -First 1 | Get-Content

@@ -18,6 +18,7 @@ function Get-AppConfigKeyValues {
         [Parameter(Mandatory = $false)]
         [string]$keyname
     )
+    [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
     if (!$uri -or !$id -or !$secret) {
         throw 'Missing Azure App Config details'
     }
