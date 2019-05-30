@@ -2,7 +2,10 @@
 ONLY WORKS IN Windows PS 5.x NOT Core/6.x (╯°□°）╯︵ ┻━┻
 6.x Invoke-RestMethod doesn't like commas in the authorization header...
 
-Defaults to getting Azure App Config details from env vars
+Defaults to getting Azure App Config details from env vars:
+$env:cfguri
+$env:cfgid
+$env:cfgsecret
 #>
 function Get-AppConfigKeyValues {
     param (

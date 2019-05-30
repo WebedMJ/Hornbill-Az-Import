@@ -1,6 +1,6 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
-LABEL description="Azure2HornbillUserImport" version="0.3.0"
+LABEL description="Azure2HornbillUserImport" version="0.3.1"
 
 COPY src/install-hornbill.ps1 c:/windows/temp/install-hornbill.ps1
 RUN powershell.exe -noprofile -executionpolicy bypass -file c:\windows\temp\install-hornbill.ps1
