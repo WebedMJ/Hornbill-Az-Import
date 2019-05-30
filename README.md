@@ -14,3 +14,5 @@ cd '/home/<username>/Hornbill-Az-Import'
 ACR_NAME=myacr
 az acr build --registry $ACR_NAME --platform windows --image hornbillazimport:v1 .
 ```
+
+Note trainling '.' for source location!
