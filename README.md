@@ -35,7 +35,7 @@ Note trainling '.' for source location!
 
 Pass following environment variables to container at runtime:
 
-* cfguri -> URL for Azure App Configuration (https://myappconfig.azconfig.io)
+* cfguri -> URL for Azure App Configuration (<https://myappconfig.azconfig.io>)
 * cfgid -> Azure App Configuration Access Key Id
 * cfgsecret -> Azure App Configuration Access Key Secret
 * cfgkey -> Azure App Configuration Key name to retrieve json config
