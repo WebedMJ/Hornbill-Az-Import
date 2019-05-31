@@ -42,6 +42,28 @@ Pass following environment variables to container at runtime:
 
 Readonly access key is sufficient
 
-## Additional resources
+### Additional resources
 
 [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task) - also shows using service principals and keyvault.
+
+## Running in ACI
+
+```sh
+# vars
+RES_GROUP=corp-general
+ACR_NAME=corpgeneral01
+acrloginserver=corpgeneral01.azurecr.io
+AKV_NAME=corpgeneral01-acr-vault
+
+# Create container, assumes registry with admin user enabled and credentials stored in Key Vaul as per MS ACR tutorial...
+az container create --resource-group $RES_GROUP --name az2hbsync --image corpgeneral01.azurecr.io/hornbillazimport:v1 \
+--cpu 1 --memory 1.5 --registry-login-server $acrloginserver \
+--registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
+--registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
+--location uksouth --os-type Windows --restart-policy Never --no-wait \
+--secure-environment-variables 'cfguri'='https://myapponfig.azconfig.io' 'cfgid'='accesskeyid' 'cfgsecret'='accesskeysupersecret' 'cfgkey'='BasicUserSync'
+```
+
+## Automate deployment and updates with ACR Tasks
+
+See <https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview>
