@@ -14,8 +14,8 @@
         "Search": "groups",
         "UsersByGroupID": [
             {
-                "ObjectID": "Group Object ID",
-                "Name": "Group Object Name"
+                "ObjectID": "",
+                "Name": ""
             }
         ]
     },
