@@ -10,7 +10,7 @@ $HBDirectory = 'c:\Hornbill_Import'
 $params = @{
     FilePath         = '{0}\Azure2UserImport_x64.exe' -f $HBDirectory
     WorkingDirectory = $HBDirectory
-    ArgumentList     = '-dryrun=true' # remove or change to false to run for real
+    # ArgumentList     = '-dryrun=true' # remove or change to false to run for real
     Wait             = $true
 }
 Start-Process @params
