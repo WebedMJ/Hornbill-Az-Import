@@ -1,8 +1,8 @@
 # Containerised Hornbill Azure User Import tool
 
-Work in progress!
+Sync tool source: <https://github.com/hornbill/goAzure2HUserImport>
 
-See: <https://github.com/hornbill/goAzure2HUserImport>
+Hornbill Wiki: <https://wiki.hornbill.com/index.php/Azure_User_Import>
 
 ## Store Configuration in Azure App Configuration
 
