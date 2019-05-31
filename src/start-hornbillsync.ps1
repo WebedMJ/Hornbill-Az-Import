@@ -6,7 +6,7 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $HBDirectory = 'c:\Hornbill_Import'
 . $(Join-Path -Path $HBDirectory -ChildPath 'Get-AzureAppConfig.ps1')
-(Get-AppConfigKeyValues -keyname $env:cfgkey).value | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json')
+(Get-AppConfigKeyValues -keyname $env:cfgkey).value | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json') -Encoding ascii
 $params = @{
     FilePath         = '{0}\Azure2UserImport_x64.exe' -f $HBDirectory
     WorkingDirectory = $HBDirectory
