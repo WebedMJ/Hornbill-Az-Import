@@ -1,13 +1,13 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
-$HBSHA256 = "CF98B8F47BE325524FD716520FA0CD3D765D453265BF5180330AF4ABBD92892F"
-$HBVersion = "2.0.2"
+$HBSHA256 = "E49EDB3D020B3C132049DF0503F8DE41C702ABC256BDDB6B8BAFAA1417915179"
+$HBuri = "https://github.com/hornbill/goAzure2HUserImport/releases/download/2.1.0/azure_user_import_win_x64_v2_1_0.zip"
 $HBDirectory = 'c:\Hornbill_Import'
 $HBZip = '{0}\Azure2UserImport.zip' -f $env:TEMP
 $params = @{
     Method  = 'Get'
-    Uri     = 'https://github.com/hornbill/goAzure2HUserImport/releases/download/v{0}/Azure2UserImport_{1}.zip' -f $HBVersion, $HBVersion
+    Uri     = $HBuri
     OutFile = $HBZip
 }
 Invoke-WebRequest @params

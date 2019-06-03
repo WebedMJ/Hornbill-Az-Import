@@ -8,6 +8,10 @@
         "ClientID": "",
         "ClientSecret": "",
         "UserFilter": "",
+        "UserProperties": [
+            "employeeId",
+            "mailNickname"
+        ],
         "UserID": "userPrincipalName",
         "Debug": false,
         "APIVersion": "v1.0",

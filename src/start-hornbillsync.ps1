@@ -8,7 +8,7 @@ $HBDirectory = 'c:\Hornbill_Import'
 . $(Join-Path -Path $HBDirectory -ChildPath 'Get-AzureAppConfig.ps1')
 (Get-AppConfigKeyValues -keyname $env:cfgkey).value | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json') -Encoding ascii
 $params = @{
-    FilePath         = '{0}\Azure2UserImport_x64.exe' -f $HBDirectory
+    FilePath         = '{0}\azure_user_import.exe' -f $HBDirectory
     WorkingDirectory = $HBDirectory
     # ArgumentList     = '-dryrun=true' # remove or change to false to run for real
     Wait             = $true
