@@ -50,10 +50,10 @@ Readonly access key is sufficient
 
 ```sh
 # vars
-RES_GROUP=corp-general
-ACR_NAME=corpgeneral01
-acrloginserver=corpgeneral01.azurecr.io
-AKV_NAME=corpgeneral01-acr-vault
+RES_GROUP=myrg
+ACR_NAME=myreg
+acrloginserver=myreg.azurecr.io
+AKV_NAME=mykv-acr-vault
 
 # Create container, assumes registry with admin user enabled and credentials stored in Key Vaul as per MS ACR tutorial...
 az container create --resource-group $RES_GROUP --name az2hbsync --image corpgeneral01.azurecr.io/hornbillazimport:v1 \
