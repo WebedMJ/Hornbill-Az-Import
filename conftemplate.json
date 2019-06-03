@@ -31,7 +31,7 @@
         "FirstName": "{{.givenName}}",
         "LastName": "{{.surname}}",
         "JobTitle": "{{.jobTitle}}",
-        "Site": "{{.physicalDeliveryOfficeName}}",
+        "Site": "{{.officeLocation}}",
         "Phone": "",
         "Email": "{{.mail}}",
         "Mobile": "{{.mobilePhone}}",
