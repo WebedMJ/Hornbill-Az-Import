@@ -56,7 +56,7 @@ acrloginserver=myreg.azurecr.io
 AKV_NAME=mykv-acr-vault
 
 # Create container, assumes registry with admin user enabled and credentials stored in Key Vaul as per MS ACR tutorial...
-az container create --resource-group $RES_GROUP --name az2hbsync --image corpgeneral01.azurecr.io/hornbillazimport:v1 \
+az container create --resource-group $RES_GROUP --name az2hbsync --image myreg.azurecr.io/hornbillazimport:v1 \
 --cpu 1 --memory 1.5 --registry-login-server $acrloginserver \
 --registry-username $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-usr --query value -o tsv) \
 --registry-password $(az keyvault secret show --vault-name $AKV_NAME --name $ACR_NAME-pull-pwd --query value -o tsv) \
