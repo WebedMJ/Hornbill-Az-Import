@@ -10,7 +10,10 @@
         "UserFilter": "",
         "UserProperties": [
             "employeeId",
-            "mailNickname"
+            "mailNickname",
+            "department",
+            "companyName",
+            "officeLocation"
         ],
         "UserID": "userPrincipalName",
         "Debug": false,
