@@ -31,7 +31,7 @@ ACR_NAME=myacr
 az acr build --registry $ACR_NAME --platform windows --image hornbillazimport:v1 .
 ```
 
-Note trainling '.' for source location!
+Note trailing '.' for source location!
 
 Pass following environment variables to container at runtime:
 
@@ -40,13 +40,15 @@ Pass following environment variables to container at runtime:
 * cfgsecret -> Azure App Configuration Access Key Secret
 * cfgkey -> Azure App Configuration Key name to retrieve json config
 
-Readonly access key is sufficient
+Read only access key is sufficient
 
 ### Additional resources
 
 [Tutorial: Build and deploy container images in the cloud with Azure Container Registry Tasks](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tutorial-quick-task) - also shows using service principals and keyvault.
 
 ## Running in ACI
+
+To do this with Azure CLI:
 
 ```sh
 # vars
@@ -64,6 +66,37 @@ az container create --resource-group $RES_GROUP --name az2hbsync --image myreg.a
 --secure-environment-variables 'cfguri'='https://myapponfig.azconfig.io' 'cfgid'='accesskeyid' 'cfgsecret'='accesskeysupersecret' 'cfgkey'='BasicUserSync'
 ```
 
-## Automate deployment and updates with ACR Tasks
+## Automate image updates with ACR Tasks
 
 See <https://docs.microsoft.com/en-us/azure/container-registry/container-registry-tasks-overview>
+
+## Schedule container with Azure Automation
+
+You can use Run-az2hbsync-aci.ps1 as a runbook with a linked schedule to run the container, it will terminate after each sync.
+
+Import the AzureACIAuth and AzureACIREST modules from <https://github.com/WebedMJ/PSAzureREST>
+
+Required Automation account variables:
+
+| Name           | Description                                                    |
+|----------------|----------------------------------------------------------------|
+| acrloginserver | FQDN for ACR login server                                      |
+| acruser        | Admin user for ACR (Secure)                                    |
+| acrpw          | Admin password for ACR (Secure)                                |
+| cfguri         | URL for Azure App Configuration containing sync tool json.conf |
+| cfgid          | Azure App Configuration Access key id                          |
+| cfgsecret      | Azure App Configuration Access key secret                      |
+
+Example variables to pass with the linked schedule:
+
+| Variable          | Description                        |
+|-------------------|------------------------------------|
+| ResourceGroupName | Resource Group to deploy ACI       |
+| containername     | Name to assign the container group |
+| Location          | Azure Region to deploy ACI         |
+| SubscriptionID    | "Azure Subscrition to use for ACI" |
+| osType            | "Windows"                          |
+| Image             | "imagename:vtag"                   |
+| MemoryGB          | "1.5"                              |
+| CPU               | 1                                  |
+| RestartPolicy     | "Never"                            |
