@@ -20,6 +20,12 @@ Minimum required fields in addtion to example conftemplate.json:
 * AzureConf.UsersByGroupID.ObjectID
 * AzureConf.UsersByGroupID.Name
 
+Also add Azure File account details for log upload:
+
+* azfileaccount
+* azfileuser
+* azfilepass
+
 ## Building with ACR
 
 Login az cli or use cloud shell...
