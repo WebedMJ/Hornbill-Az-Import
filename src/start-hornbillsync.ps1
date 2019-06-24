@@ -4,13 +4,13 @@
 # Pass required json attributes as environment variables at container creation / run time
 # e.g. on ACI see https://docs.microsoft.com/en-us/azure/container-instances/container-instances-environment-variables
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+$HBDirectory = 'c:\Hornbill_Import'
+. $(Join-Path -Path $HBDirectory -ChildPath 'Get-AzureAppConfig.ps1')
 $azfileaccount = (Get-AppConfigKeyValues -keyname 'azfileaccount').value
 $azfileuser = (Get-AppConfigKeyValues -keyname 'azfileuser').value
 $azfilepass = (Get-AppConfigKeyValues -keyname 'azfilepass').value
 Invoke-Expression -Command "cmdkey /add:$azfileaccount.file.core.windows.net /user:$azfileuser /pass:$azfilepass"
 New-PSDrive -Name L -PSProvider FileSystem -Root "\\$azfileaccount.file.core.windows.net\az2hblogs"
-$HBDirectory = 'c:\Hornbill_Import'
-. $(Join-Path -Path $HBDirectory -ChildPath 'Get-AzureAppConfig.ps1')
 (Get-AppConfigKeyValues -keyname $env:cfgkey).value | Out-File $(Join-Path -Path $HBDirectory -ChildPath 'conf.json') -Encoding ascii
 $params = @{
     FilePath         = '{0}\azure_user_import.exe' -f $HBDirectory
