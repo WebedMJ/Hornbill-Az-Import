@@ -1,8 +1,8 @@
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
-$HBSHA256 = "E49EDB3D020B3C132049DF0503F8DE41C702ABC256BDDB6B8BAFAA1417915179"
-$HBuri = "https://github.com/hornbill/goAzure2HUserImport/releases/download/2.1.0/azure_user_import_win_x64_v2_1_0.zip"
+$HBSHA256 = "59304AF3C7ED36FEC3B9899C9439FB224C4A876419C959A7B89C8D019C094832"
+$HBuri = "https://github.com/hornbill/goAzure2HUserImport/releases/download/2.1.1/azure_user_import_win_x64_v2_1_1.zip"
 $HBDirectory = 'c:\Hornbill_Import'
 $HBZip = '{0}\Azure2UserImport.zip' -f $env:TEMP
 $params = @{
