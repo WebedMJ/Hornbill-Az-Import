@@ -19,8 +19,6 @@ $params = @{
     Wait             = $true
 }
 Start-Process @params
-# Cleanup conf
-Remove-Item $(Join-Path -Path $HBDirectory -ChildPath 'conf.json')
 # Dump sync logs to container logs
 Get-ChildItem -Path L:\* -Include '*.log' |
     Where-Object CreationTime -lt $(Get-Date).AddDays(-90) |
