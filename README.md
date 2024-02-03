@@ -1,3 +1,5 @@
+# \*\*Please note this is no longer maintained!\*\*
+
 # Containerised Hornbill Azure User Import tool
 
 Sync tool source: <https://github.com/hornbill/goAzure2HUserImport>
